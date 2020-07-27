@@ -1,0 +1,71 @@
+
+.all-img-slide-product{
+  width: 100px;
+}
+#more-pro-detail{
+  /* position: absolute; */
+  height: 100%;
+}
+#prev-slide-all{
+width: 100%;
+}
+.all-pro-slide {
+  position: relative;;
+  width: 100%;
+  height:400px;
+  background:#fdfdfd;
+}
+.all-pro-slide .head {
+  width:100%;
+  height:55px;
+  display:flex;
+  border-bottom: 2px solid #f5f7fa;
+}
+.btn-all-slide{
+  height:100%;
+  text-align: center;
+  cursor:pointer;
+  background:transparent;
+  text-transform:uppercase;
+  font-size:15px;
+  color: #e5a750;
+}
+.all-pro-slide .head.pr-all-img1 > div:nth-child(1),.all-pro-slide .head > div:nth-child(2) {
+  /* background:#eee; */
+
+}
+.all-pro-slide .head.pr-all-img1 > div:nth-child(2) {
+  background:transparent !important;
+}
+
+
+.all-pro-slide .form-body-slide {
+  position:absolute;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+}
+.all-pro-slide .form-body-slide > div {
+  position:absolute;
+  width:100%;
+  height:100%;
+  transition:all 300ms ease-in-out;
+}
+.all-pro-slide .form-body-slide > div.pr-all-img {
+  bottom:0%;
+}
+.all-pro-slide .form-body-slide > div.loan {
+  bottom:100%;
+}
+.all-pro-slide .form-body-slide.active > div.pr-all-img {
+  bottom:-100%;
+}
+.all-pro-slide .form-body-slide.active > div.loan {
+  bottom:0%;
+}
+.all-img-style img{
+  width: 100%;
+  height: auto;
+  padding: 5px 0px;
+  border: 2px solid #f5f7fa;
+}
