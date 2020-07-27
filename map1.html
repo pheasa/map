@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>
+      Label Overlay Example
+    </title>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCb1xprYSpXd0q_yDsJ1W2UGhfl9_YGKU0&callback=initMap&libraries=&v=weekly" type="text/javascript"></script>
+    <script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
+    <style>
+        #map {width:500px;height: 400px;}
+    </style>
+  </head>
+  <body>
+    <div id="map">Map will be here</div>
+    <script>
+        var map,
+            faisalabad = {lat:11.562108, lng:104.888535};
+
+            function addYourLocationButton (map, marker) 
+            {
+                var controlDiv = document.createElement('div');
+
+                var firstChild = document.createElement('button');
+                firstChild.style.backgroundColor = '#fff';
+                firstChild.style.border = 'none';
+                firstChild.style.outline = 'none';
+                firstChild.style.width = '28px';
+                firstChild.style.height = '28px';
+                firstChild.style.borderRadius = '2px';
+                firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+                firstChild.style.cursor = 'pointer';
+                firstChild.style.marginRight = '10px';
+                firstChild.style.padding = '0';
+                firstChild.title = 'Your Location';
+                controlDiv.appendChild(firstChild);
+
+                var secondChild = document.createElement('div');
+                secondChild.style.margin = '5px';
+                secondChild.style.width = '18px';
+                secondChild.style.height = '18px';
+                secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-2x.png)';
+                secondChild.style.backgroundSize = '180px 18px';
+                secondChild.style.backgroundPosition = '0 0';
+                secondChild.style.backgroundRepeat = 'no-repeat';
+                firstChild.appendChild(secondChild);
+
+                google.maps.event.addListener(map, 'center_changed', function () {
+                    secondChild.style['background-position'] = '0 0';
+                });
+
+                firstChild.addEventListener('click', function () {
+                    var imgX = '0',
+                        animationInterval = setInterval(function () {
+                            imgX = imgX === '-18' ? '0' : '-18';
+                            secondChild.style['background-position'] = imgX+'px 0';
+                        }, 500);
+
+                    if(navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                            map.setCenter(latlng);
+                            clearInterval(animationInterval);
+                            secondChild.style['background-position'] = '-144px 0';
+                            
+                            /////////////////////////change point////////////////////////////
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 15,
+                                center: latlng
+                                });
+                                var myMarker = new google.maps.Marker({
+                                map: map,
+                                animation: google.maps.Animation.DROP,
+                                position: latlng,
+                                draggable: true,
+                                
+                                });
+                            ////////////////////////////////////////////////////////////////
+                        });
+                    } else {
+                        clearInterval(animationInterval);
+                        secondChild.style['background-position'] = '0 0';
+                    }
+                });
+
+                controlDiv.index = 1;
+                map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+            }
+
+
+            map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 6,
+            center: faisalabad
+            });
+            var myMarker = new google.maps.Marker({
+            map: map,
+            animation: google.maps.Animation.DROP,
+            position: faisalabad,
+            draggable: true,
+            
+            });
+            addYourLocationButton(map, myMarker);
+    </script>
+  </body>
+</html>
