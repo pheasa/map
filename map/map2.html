@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>
+      Label Overlay Example
+    </title>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCb1xprYSpXd0q_yDsJ1W2UGhfl9_YGKU0&callback=initMap&libraries=&v=weekly" type="text/javascript"></script>
+    <script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
+    <style>
+        #map {width:500px;height: 400px;}
+        .create-shop-main{
+            width: 700px;
+            margin: 35px 0px;
+        }
+        .create-shop-main .shop-img{
+            width: 70px;
+            height: 70px;
+            margin: 10px 0px;
+        }
+        .shop-img img{
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+        }
+        .add-photo a{
+            color: #999999;
+            border: 2px solid #999999;
+        }
+        .add-photo .btn-add-photo{
+            padding-bottom: 45px;
+            border-bottom: 1px solid #999999;
+        }
+        .create-shop-main .shop-detail{
+            padding-top: 35px;
+        }
+        .shop-detail .text-shop-style{
+            width: 80%;
+            border: 1px solid #c7c7c7;
+        }
+        .create-shop-main .padding-top-25px{
+            padding-top: 25px;
+        }
+        #btn-add-wing{
+            border-radius: 100%;
+            background-color: #43c064;
+            color: white;
+            border: none;
+            height: 25px;
+            width: 25px;
+            margin-top: 20px;
+            float: left;
+            cursor: pointer;
+        }
+        #btn-add-wing span{
+            padding: 3px;
+            margin: -9px;
+            margin-top: 1px;
+        }
+        .btn-remove-wing{
+            border-radius: 100%;
+            background-color: red;
+            color: white;
+            border: none;
+            height: 25px;
+            width: 25px;
+            margin-top: 20px;
+        }
+        .shop-detail input{
+            padding: 10px;
+        }
+
+
+        #root_brows_image_bg{
+            text-align: center; color: gray; font-size: 20px;;
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+        }
+        #btn_brows_image_bg{
+            padding: 10px 35px 10px 35px;
+            background-color: white;
+            border: 1px solid #C7C7C7;
+            border-radius: 5px;
+
+        }
+        #select-province{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d4d4d4;
+        }
+        #btn-add-new-post{
+            width: 100%;
+            padding: 10px;
+            background-color: #e5a750;
+            color: white;
+            border: none;
+        }
+        #map {width:100%;
+            height: 400px;}
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid main-header">
+        <!-- ////////////////////about label////////////// -->
+        <div class="container-fluid main-header-1">
+          <div class="container text-right" >
+            <div class="main-header-about">
+              
+              <a href="#" class="border-right">Contact Us</a>
+              <a href="#" class="border-right">About Us</a>
+              <a href="#" class="border-right">Term of Privacy</a>
+              <select name="language" id="language">
+                <option value="english">english</option>
+                <option value="khmer">khmer</option>
+              </select>
+              <button id="drop_acc_menu_bg" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user-o"></i> Account
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" id="body_drop_acc_menu_bg" >
+                <div class="rows" id="acc_rows_1">
+                  <div class="col-md-12" style="text-align: center; padding-top: 10px; padding-bottom: 10px;">
+                    <label>Wellcome to 121 SHOPPE</label>
+                  </div>
+                  <div class="col-md-12">
+                    <input type="button" class="form-control" id="btn_sign_in_bg" value="Sign In"/>
+                  </div>
+                  <div class="col-md-12" >
+                    <input type="button" class="form-control" id="btn_sign_up_bg" value="Sign Up"/>
+                  </div>
+                </div>
+      
+                <div class="rows" id="acc_rows_2" >
+                  <div class="col-md-12" style="padding-top: 10px; padding-bottom: 10px; text-align: center; border-bottom: 1px solid gray;">
+                    <img src="image/product.jpg" alt="image" style="border-radius: 50%; height: 60px; width: 60px;"/>
+                    <span>&nbsp;&nbsp;<label>Kosal Heng</label></span>
+                  </div>
+                  <a href="/17.121Motorbike/121/121/loan-request.html">
+                    <div class="col-md-12" style="margin-top: 20px; " >
+                        <div class="col-xs-4"><i class="fa fa-camera" aria-hidden="true" id="icon_relate_acc_bg"></i></div>
+                        <div class="col-xs-8" id="title_relate_acc_bg"><label >Post</label></div>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="col-md-12" style="margin-top: 20px;" >
+                        <div class="col-xs-4"><i class="fa fa-heart" aria-hidden="true" id="icon_relate_acc_bg"></i></div>
+                        <div class="col-xs-8" id="title_relate_acc_bg"><label >Like</label></div>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="col-md-12" style="margin-top: 20px;" >
+                        <div class="col-xs-4"><i class="fa fa-money" aria-hidden="true" id="icon_relate_acc_bg"></i></div>
+                        <div class="col-xs-8" id="title_relate_acc_bg"><label >Loan</label></div>
+                    </div>
+                  </a>
+      
+                  <a href="#">
+                    <div class="col-md-12" style="margin-top: 20px;  border-top: 1px solid gray; padding-top: 20px;" >
+                        <div class="col-xs-4"><i class="fa fa-bell" aria-hidden="true" id="icon_relate_acc_bg"></i></div>
+                        <div class="col-xs-8" id="title_relate_acc_bg"><label >Notification</label></div>
+                    </div>
+                  </a>
+      
+                  <a href="#">
+                    <div class="col-md-12" style="margin-top: 20px;" >
+                        <div class="col-xs-4"><i class="fa fa-comments" aria-hidden="true" id="icon_relate_acc_bg"></i></div>
+                        <div class="col-xs-8" id="title_relate_acc_bg"><label >Chat</label></div>
+                    </div>
+                  </a>
+      
+                  <a href="#">
+                    <div class="col-md-12" style="margin-top: 20px;" >
+                        <div class="col-xs-4"><i class="fa fa-cogs" aria-hidden="true" id="icon_relate_acc_bg"></i></div>
+                        <div class="col-xs-8" id="title_relate_acc_bg"><label >Setting</label></div>
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div class="col-md-12" style="margin-top: 20px;" >
+                        <div class="col-xs-4"><i class="fa fa-sign-out" aria-hidden="true" id="icon_relate_acc_bg"></i></div>
+                        <div class="col-xs-8" id="title_relate_acc_bg"><label >Log Out</label></div>
+                    </div>
+                  </a>
+              </div>
+            
+            </div>
+            
+          </div>
+        </div>
+        <!-- ///////////////search label////////////// -->
+        <div class="container-fluid main-header-2">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 logo">
+                <img src="image/logo.png">
+              </div>
+              <!-- /////////////////search/////////////////// -->
+              <div class="col-xs-9 col-sm-6 col-md-6 col-lg-6">
+               <div class="topnav">
+                  <div class="search-container">
+                    <form action="/action_page.php">
+                      <input type="text" placeholder="Search.." name="search">
+                      <select name="category" id="category">
+                        <option value="category">All Category</option>
+                        <option value="category1">category1</option>
+                      </select>
+                      <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-right">
+                <div class="store-post"><img src="image/icon/post.png"><br>Post</div>
+                <div class="store-post"><img src="image/icon/store.png"><br>store</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /////////////////body///////////////// -->
+      <div class="container-fluid main-body">
+        <div class="d-flex justify-content-center">
+          <div class="div create-shop-main">
+            <form action="http://localhost/form/get.php" method="post" id="form_create_shop">
+              <div class="row shop-detail" id="shop-detail">
+                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 add-photo">
+                  <div class="d-flex justify-content-center">
+                    
+                    <div class="col-md-12 btn-add-photo" style="text-align: center; ">
+                        <img id="blah" src="image/icon/profile_empty.png" alt="your image" style=" border-radius: 50%; width: 100px; height: 100px; " />
+                        <div class="row">
+                            <div class="col-md-12" id="root_brows_image_bg">
+                                <span id="btn_brows_image_bg" onclick="onClickBrowsImageForPublice()">
+                                    <i class="fa fa-camera" aria-hidden="true"></i>
+                                    <span style="font-size: 15px !important;">&nbsp;&nbsp;Add Photo</span>
+                                    <input hidden id="wait_btn_click_bg_public" type='file' value="Add Image" onchange="readURLPublic(this);" /> 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+      
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-top-25px">
+                  <!-- ///////////shop's name////////// -->
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <div class="row">
+                        <div class="col xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <label for="">Shop name</label>
+                        </div>
+                        <div class="col xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <input placeholder="Enter information" type="text" class="text-shop-style" name="shop-name" id="shop-name">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- //////////////phone number//////////// -->
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                      <div class="row">
+                        <div class="col xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <label for="">Phnone number</label>
+                        </div>
+                        <div class="col xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <input placeholder="Enter information" type="text" class="text-shop-style" name="phone-number" id="phone-number" style="width: 100%;">
+                        </div>
+                      </div>
+                    </div>
+      
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-top-25px" id="wing-account">
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <div class="row">
+                        <div class="col xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <label for="">Wing accoun name</label>
+                        </div>
+                        <div class="col xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <input placeholder="Enter information" type="text" class="text-shop-style" name="shop-name" id="shop-name">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- //////////////phone number//////////// -->
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                      <div class="row">
+                        <div class="col xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <label for="">wing account number</label>
+                        </div>
+                        <div class="col xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <input placeholder="Enter information" type="text" class="text-shop-style" name="wing-number" id="wing-number" style="width: 100%;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                      <a id="btn-add-wing"><span class="glyphicon glyphicon-plus"></span></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- //////////map///////////// -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 create-shop-map">
+                  <div class="row">
+                    <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 padding-top-25px">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <label>Address</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <select name="select-province" id="select-province">
+                            <option value="kompongchhnang">Kampong Chhnang</option>
+                            <option value="preyveng">Prey veng</option>
+                            <option value="phnompenh">Phnom Penh</option>
+                            <option value="takoa">Ta kao</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row padding-top-25px">
+                    <!-- /////////////////////map////////////////////// -->
+                    <div class="col-xs-11 col-sm-11" id="map">
+                    </div>
+                    <input type="text" id="latlong">
+                    <div class="col-xs-11 col-sm-11 padding-top-25px">
+                      <button id="btn-add-new-post" type="submit">Add</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- ///////////////////footer///////////// -->
+      <div class="container-fluid main-footer">
+        <div class="container-fluid main-footer-1">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 follow-shop">
+                <h4>Follow 121 SHOPPE</h4>
+                <a href="facebook.com">
+                  <h5><i class="fa fa-facebook-square" style="color:white;font-size: 20px;"></i> Facebook</h5>
+                </a>
+              </div>
+              <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 about-shop">
+                <h4>About 121 SHOPPE</h4>
+                <h5>
+                  <a href="#">Company Profile</a><br><br>
+                  <a href="#">Contact Us</a><br><br>
+                  <a href="#"> Term and Privacy</a><br><br>
+                </h5>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 download-shop">
+              <h4>Download 121 SHOPPE</h4>
+                <div class="row">
+                  <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 app padding-min-576px">
+                    <h4 class="margin-0px">App For FREE</h4>
+                    <img src="image/Artboard 1.png" alt="">
+                    <img src="image/Artboard 2.png" alt="">
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 qrcode-app">
+                    <img src="image/qr.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid main-footer-2">
+          <div class="container">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Copyright ®2020</div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">Power by 121 SHOPPE Co.ltd</div>
+          </div>
+        </div>
+      </div>
+    <script>
+        var map,faisalabad = {lat:11.562108, lng:104.888535};
+            function addYourLocationButton (map, marker) 
+            {
+                var controlDiv = document.createElement('div');
+
+                var firstChild = document.createElement('button');
+                firstChild.style.backgroundColor = '#fff';
+                firstChild.style.border = 'none';
+                firstChild.style.outline = 'none';
+                firstChild.style.width = '28px';
+                firstChild.style.height = '28px';
+                firstChild.style.borderRadius = '2px';
+                firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+                firstChild.style.cursor = 'pointer';
+                firstChild.style.marginRight = '10px';
+                firstChild.style.padding = '0';
+                firstChild.title = 'Your Location';
+                controlDiv.appendChild(firstChild);
+
+                var secondChild = document.createElement('div');
+                secondChild.style.margin = '5px';
+                secondChild.style.width = '18px';
+                secondChild.style.height = '18px';
+                secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-2x.png)';
+                secondChild.style.backgroundSize = '180px 18px';
+                secondChild.style.backgroundPosition = '0 0';
+                secondChild.style.backgroundRepeat = 'no-repeat';
+                firstChild.appendChild(secondChild);
+
+                google.maps.event.addListener(map, 'center_changed', function () {
+                    secondChild.style['background-position'] = '0 0';
+                });
+
+                firstChild.addEventListener('click', function () {
+                    var imgX = '0',
+                        animationInterval = setInterval(function () {
+                            imgX = imgX === '-18' ? '0' : '-18';
+                            secondChild.style['background-position'] = imgX+'px 0';
+                        }, 500);
+
+                    if(navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                            map.setCenter(latlng);
+                            clearInterval(animationInterval);
+                            secondChild.style['background-position'] = '-144px 0';
+                            
+                            /////////////////////////change point////////////////////////////
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 15,
+                                center: latlng
+                            });
+                            var myMarker = new google.maps.Marker({
+                                map: map,
+                                animation: google.maps.Animation.DROP,
+                                position: latlng,
+                                draggable: true,
+                            
+                            });
+                            addYourLocationButton(map, myMarker);
+                            faisalabad=latlng;
+                            ////////////////////////////////////////////////////////////////
+                        });
+                    } else {
+                        clearInterval(animationInterval);
+                        secondChild.style['background-position'] = '0 0';
+                    }
+                });
+
+                controlDiv.index = 1;
+                map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+            }
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: faisalabad,
+                // disableDefaultUI: true
+            });
+            var myMarker = new google.maps.Marker({
+                map: map,
+                animation: google.maps.Animation.DROP,
+                position: faisalabad,
+                draggable: true,
+            });
+            addYourLocationButton(map, myMarker);
+            
+    </script>
+  </body>
+</html>
