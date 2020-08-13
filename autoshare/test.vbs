@@ -1,0 +1,1 @@
+r=MsgBox("Auto share is done "& vbNewLine &"thank your for use",0+100,"Auto Share")
