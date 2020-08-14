@@ -32,6 +32,7 @@ while True:
         break
     elif event == 'ចាប់ផ្ដើម':
         window['-OUTPUT-'].update('')
+        progress_bar.UpdateBar(0)
         time.sleep(5)
         pyautogui.keyDown('ctrl')
         pyautogui.keyDown('t')
@@ -62,10 +63,10 @@ while True:
             time.sleep(3)
             pyautogui.write(['f6'])
             time.sleep(1)
-            print("id="+groups[i]+"-ធ្វើរួចរាល់")
-            print("សរុបទាំងអស់៖"+len(groups)+"Group")
+            print("id=" + groups[i] + "-ធ្វើរួចរាល់")
             progress_bar.UpdateBar(i + 1)
         print('process is done')
+        print("សរុបទាំងអស់៖" ,len(groups),"Group")
 
     elif event == "អានព័តមាន":
         window['-OUTPUT-'].update('')
