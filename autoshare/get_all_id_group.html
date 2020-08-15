@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea{
+            width: 100%;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Apply" id="apply" style="width: 100%;background-color: blue;color: white;margin: 10px 0px;">
+    <textarea name="input" id="input" cols="100%" rows="10"></textarea>
+    <textarea id="show_all_id" rows="8" disabled="display"></textarea>
+    <textarea id="show_all_name" rows="10" disabled="display"></textarea>
+    <input id="show_group" type="hidden">
+    </div>
+    <script>
+        document.getElementById("apply").onclick=function(){
+            var all_group=document.getElementById('input').value;
+            document.getElementById("show_group").innerHTML=all_group;
+            var all_id_done="";
+            var all_name_done="";
+            var show_group=document.getElementById("show_group");
+            var count_group=show_group.getElementsByClassName("_2yau").length;
+            for(var i=0 ; i<count_group ; i++){
+                var sub_href=show_group.getElementsByClassName("_2yau")[i].getAttribute("href");
+                sub_href=sub_href.replace("/groups/","");
+                sub_href=sub_href.replace("/?ref=group_browse","");
+                if(i==0){
+                    all_id_done+=sub_href;
+                }else
+                    all_id_done+=","+sub_href;
+            }
+            document.getElementById("show_all_id").innerText=all_id_done;
+            /////get name////
+            var name=show_group.getElementsByClassName("_2yav").value;
+            for(var i=0 ; i<count_group ; i++){
+                if(i==0){
+                    all_name_done+=name[i].value;
+                }else
+                all_name_done+=","+name[i].value;
+            }
+            document.getElementById("show_all_name").innerText=all_name_done;
+            
+        }
+    </script>
+</body>
+</html>
