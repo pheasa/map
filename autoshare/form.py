@@ -40,6 +40,7 @@ while True:
         pyautogui.keyUp('ctrl')
 
         for i in range(len(groups)):
+            print("id=" + groups[i] ,end="\r")
             link = 'https://facebook.com/groups/'+groups[i]
             pyautogui.typewrite(link)
             pyautogui.typewrite('\n')
@@ -63,7 +64,7 @@ while True:
             time.sleep(3)
             pyautogui.write(['f6'])
             time.sleep(1)
-            print("id=" + groups[i] + "-ធ្វើរួចរាល់")
+            print("-ធ្វើរួចរាល់")
             progress_bar.UpdateBar(i + 1)
         print('process is done')
         print("សរុបទាំងអស់៖" ,len(groups),"Group")
