@@ -7,7 +7,8 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
     <meta name="viewport" content="width=device-width"/>
 
-    <title>Your Website Is Ready - InfinityFree</title>
+    <title>ចុះឈ្មោះ</title>
+    <link rel="icon" href="https://scontent.fpnh12-1.fna.fbcdn.net/v/t1.0-9/118316103_104109561425562_5895812835032248210_o.png?_nc_cat=102&_nc_sid=09cbfe&_nc_ohc=BVvbc9PLfb8AX8Laft3&_nc_ht=scontent.fpnh12-1.fna&oh=4c8ecd93aebfd9db4c916491edc2dacb&oe=5F75743A">
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <style type="text/css">
@@ -54,7 +55,7 @@
         }
 
         .main{
-            background-image: url('https://vpassets.infinityfree.net/welcome2017/background.jpg');
+            background-image: url('background.jpg');
             background-position: center center;
             background-size: cover;
             height: auto;
@@ -126,7 +127,7 @@
             position: relative;
             bottom: 20px;
             right: 0;
-            width: 100%;
+            width: 100px;
             color: #AAAAAA;
             z-index: 4;
             text-align: right;
@@ -216,6 +217,7 @@
     <!--     Fonts     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Khmer&display=swap" rel="stylesheet">
 
 </head>
 
@@ -230,39 +232,91 @@
         <div class="content">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
-                <form action="/action_page.php" style="background-color: rgba(247, 247, 247, 0.33);border-radius: 5px;color: white;">
+                <form action="/action_page.php" style="background-color: rgba(0, 0, 0, 0.33);border-radius: 5px;color: white;font-family: 'Khmer', cursive;">
                     <div class="container">
-                    <h1>Register</h1>
-                    <p>Please fill in this form to create an account.</p>
-                    <hr>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label for="email"><b>ត្រកូល</b></label>
-                            <input class="color-black" type="text" placeholder="Enter Email" name="email" id="email" required>
+                        <h1>ទម្រប់ចុះឈ្មោះ</h1>
+                        <p>សូមធ្វើការបំពេញ ក្នុង​ប្រអប់​ខាង​ក្រោយ​ដើម្បី​ធ្វើ​ការ​ចុះ​ឈ្មោះ។</p>
+                        <hr>
+                        <!-- ///////////////history//////////////// -->
+                        <div style="width: 100%;text-align: center;"><h2>ប្រវត្តិរូប</h2></div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label for="first-name"><b>ត្រកូល</b></label>
+                                <input class="color-black" type="text" placeholder="ត្រកូល" name="first-name" id="first-name" required>
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="last-name"><b>នាម</b></label>
+                                <input class="color-black" type="text" placeholder="នាម" name="last-name" id="last-name" required>
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            <label for="email"><b>ឈ្មោះ</b></label>
-                            <input class="color-black" type="text" placeholder="Enter Email" name="email" id="email" required>
+                        
+                        <div style="width: 120px;float: left;">
+                            <label for="sex"><b>ភេទ</b></label><br>
+                            <select name="sex" id="sex" class="color-black" style="height: 35px;">
+                                <option value="Male">ប្រុស</option>
+                                <option value="Female">ស្រី</option>
+                                <option value="other">ផ្សេងៗ</option>
+                            </select>
                         </div>
-                    </div>
-                    
-                    
-                    <label for="email"><b>ភេទ</b></label><br>
-                    <select name="sex" id="sex" class="color-black" style="height: 35px;">
-                        <option value="Male">ប្រុស</option>
-                        <option value="Female">ស្រី</option>
-                        <option value="other">ផ្សេងៗ</option>
-                    </select><br><br>
-                    <label for="email"><b>Email</b></label>
-                    <input class="color-black" type="text" placeholder="Enter Email" name="email" id="email" required>
+                        <div style="width: 120px;float: left;">
+                            <label for="age"><b>អាយុ</b></label><br>
+                            <select name="age" id="age" class="color-black" style="height: 35px;">
+                                
+                            </select>
+                        </div>
+                        <br><br>
+                        <div class="a-question" style="float: left;width: 100%;margin: 10px 0px;">
+                            <label for="phone-num"><b>លេខទូរស័ព្ទ</b></label>
+                            <input class="color-black" type="text" placeholder="លេខទូរស័ព្ទ" name="phone-num" id="phone-num" required>
+                        </div>
+                        <div class="a-question" style="float: left;width: 100%;margin: 5px 0px;">
+                            <label for="school"><b>ជាសិស្ស ឫនិស្សិតនៃសាលាណា?</b></label>
+                            <h6>ប្រសិនបើអ្នកមិនទាន់ចូលរៀន ឫត្រៀមចូលរៀនសាកលវិទ្យាល័យ សូមបំពេញ (ចប់ថ្នាក់ទី១២)</h6>
+                            <input class="color-black" type="text" placeholder="ឈ្មោះសាលា" name="school" id="school" required>
+                        </div>
+                        <div class="a-question" style="float: left;width: 100%;margin: 5px 0px;">
+                            <label for="year"><b>ថ្នាក់ទី ឫឆ្នាំទីប៉ុន្មាន?</b></label>
+                            <h6>ប្រសិនបើអ្នកមិនទាន់ចូលរៀន ឫត្រៀមចូលរៀនសាកលវិទ្យាល័យ សូមបំពេញ (ចប់ថ្នាក់ទី១២)</h6>
+                            <input class="color-black" type="text" placeholder="ថ្នាក់ទី ឫឆ្នាំទី" name="year" id="year" required>
+                        </div>
+                        <div class="a-question" style="float: left;width: 100%;margin: 5px 0px;">
+                            <label for="address"><b>អាស័យដ្ឋានបច្ចុប្បន្ន</b></label>
+                            <input class="color-black" type="text" placeholder="អាស័យដ្ឋានបច្ចុប្បន្ន" name="address" id="address" required>
+                        </div>
+                        <hr>
+                        <!-- //////////////a-question//////////////// -->
+                        <div style="width: 100%;text-align: center;"><h2>ផ្នែកសំនួរ</h2></div>
+                        <div class="a-question" style="float: left;width: 100%;margin: 5px 0px;">
+                            <label for="email"><b>តើអ្នកដឹងព័តមានតាមរយៈណា?</b></label><br>
+                            <select name="k-info" id="k-info" style="color: black;">
+                                <option value="telegram">Telegram</option>
+                                <option value="fb-page">Facebook Page</option>
+                            </select>
+                        </div>
+                        <div class="a-question" style="float: left;width: 100%;margin: 10px 0px;">
+                            <label for="why-study"><b>តើហេតុអ្វីទើបអ្នកចង់រៀនវគ្គនេះ?</b></label>
+                            <input class="color-black" type="text" placeholder="តើហេតុអ្វីទើបអ្នកចង់រៀនវគ្គនេះ?" name="why-study" id="why-study" required>
+                        </div>
+                        <div class="a-question" style="float: left;width: 100%;margin: 5px 0px;">
+                            <label for="abouse-course"><b>តើវគ្គនេះយើងរៀនអំពីអ្វី?</b></label>
+                            <input class="color-black" type="text" placeholder="តើវគ្គនេះយើងរៀនអំពីអ្វី?" name="abouse-course" id="abouse-course" required>
+                        </div>
+                        <div class="a-question" style="float: left;width: 100%;margin: 5px 0px;">
+                            <label for="pro-lang"><b>រៀបរាប់ឈ្មោះភាសាProgramដែរអ្នកស្គាល់ឲ្យបានច្រើនបំផុត!</b></label>
+                            <input class="color-black" type="text" placeholder="ឈ្មោះភាសាProgram" name="pro-lang" id="pro-lang" required>
+                        </div>
+                        <div class="a-question" style="float: left;width: 100%;margin: 5px 0px;">
+                            <label for="5year"><b>តើអ្នកមើល​ឃើញ​យ៉ាង​មិច​ចំពោះ​ខ្លួនអ្នក​នៅ​៥ឆ្នាំក្រោយ?</b></label>
+                            <input class="color-black" type="text" placeholder="ការងារ៥ឆ្នាំក្រោយ" name="5year" id="5year" required>
+                        </div>
+                        <hr>
 
-                    <label for="email"><b>Email</b></label>
-                    <input class="color-black" type="text" placeholder="Enter Email" name="email" id="email" required>
 
-                    <hr>
-                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                
-                    <button type="submit" class="registerbtn">Register</button>
+
+
+                        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    
+                        <button type="submit" class="registerbtn">Register</button>
                     </div>
                     
                     <!-- <div class="container signin">
@@ -278,14 +332,21 @@
             </div> -->
         </div>
     </div>
-    <!-- <div class="footer">
+    <div class="footer">
         <div class="container">
-            Proudly powered by <br>
-            <a href="https://infinityfree.net"><img src="https://vpassets.infinityfree.net/welcome2017/logo.png" alt="InfinityFree" height="40px"></a>
+            <a href="https://www.facebook.com/reancode.ml"><img src="https://scontent.fpnh12-1.fna.fbcdn.net/v/t1.0-9/118316103_104109561425562_5895812835032248210_o.png?_nc_cat=102&_nc_sid=09cbfe&_nc_ohc=BVvbc9PLfb8AX8Laft3&_nc_ht=scontent.fpnh12-1.fna&oh=4c8ecd93aebfd9db4c916491edc2dacb&oe=5F75743A" alt="InfinityFree" height="80px" style="border-radius: 10px;"></a>
         </div>
-    </div> -->
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script>
+    var age=document.getElementById("age");
+    var opt;
+    for(var i=14;i<=30;i++){
+        opt+='<option value="'+i+'">'+i+'</option>';
+    }
+    age.innerHTML=opt;
+</script>
 </body>
 </html>
