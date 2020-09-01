@@ -232,9 +232,9 @@
         <div class="content">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
-                <form action="/action_page.php" style="background-color: rgba(0, 0, 0, 0.33);border-radius: 5px;color: white;font-family: 'Khmer', cursive;">
+                <form method="post" action="return.php" style="background-color: rgba(0, 0, 0, 0.33);border-radius: 5px;color: white;font-family: 'Khmer', cursive;">
                     <div class="container">
-                        <h1>ទម្រប់ចុះឈ្មោះ</h1>
+                        <h1>ទម្រង់ចុះឈ្មោះ</h1>
                         <p>សូមធ្វើការបំពេញ ក្នុង​ប្រអប់​ខាង​ក្រោយ​ដើម្បី​ធ្វើ​ការ​ចុះ​ឈ្មោះ។</p>
                         <hr>
                         <!-- ///////////////history//////////////// -->
@@ -267,7 +267,7 @@
                         <br><br>
                         <div class="a-question" style="float: left;width: 100%;margin: 10px 0px;">
                             <label for="phone-num"><b>លេខទូរស័ព្ទ</b></label>
-                            <input class="color-black" type="text" placeholder="លេខទូរស័ព្ទ" name="phone-num" id="phone-num" required>
+                            <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="color-black" type="text" placeholder="លេខទូរស័ព្ទ" name="phone-num" id="phone-num" required>
                         </div>
                         <div class="a-question" style="float: left;width: 100%;margin: 5px 0px;">
                             <label for="school"><b>ជាសិស្ស ឫនិស្សិតនៃសាលាណា?</b></label>
