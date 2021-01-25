@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="start" style="width: 100%;border-radius: 0px;background-color: aquamarine;">Start</button>
+    <textarea id="input_code" cols="30" rows="10" style="width: 100%;margin: 15px 0px;"></textarea>
+    <label for="">Json</label>
+    <button id="copy">Copy</button>
+    <textarea id="result_code" cols="30" rows="10" style="width: 100%;"></textarea>
+    <div id="appendcode" hidden></div>
+</body>
+<script>
+    document.getElementById("start").onclick=function start(){
+        var getcode = document.getElementById("input_code").value;
+        document.getElementById("appendcode").innerHTML= getcode;
+        var count_all=document.getElementsByClassName("dkezsu63").length;
+        var link;
+        var id;
+        var name;
+        var group_member;
+        var group_members;
+        var all_done="";
+        for(i=0;i<count_all;i++){
+
+            // link of group
+            link=document.getElementsByClassName("dkezsu63")[i].getAttribute("href")
+            
+            // id of group
+            id=link.replace("https://www.facebook.com/groups/","");
+            id=id.replace("/","")
+
+            // name of group
+            name=document.getElementsByClassName("dkezsu63")[i].getAttribute("aria-label");
+            
+            //group member 
+            group_member=document.getElementsByClassName("jktsbyx5")[i].getElementsByClassName("g0qnabr5").length;
+            for(j=0;j<group_member;j++){
+                if(j==group_member-1){
+                    group_members=document.getElementsByClassName("jktsbyx5")[i].getElementsByClassName("g0qnabr5")[j].innerHTML;
+                }
+            }
+            // test console
+            // console.log(name+"    "+group_members)
+
+            if(i==count_all-1){
+                all_done+='"'+id+'":{"name_group":"'+name+'","link":"'+link+'","more":"'+group_members+'"}'
+            }
+            else{
+                all_done+='"'+id+'":{"name_group":"'+name+'","link":"'+link+'","more":"'+group_members+'"},'
+            }
+        }
+        all_done="{"+all_done+"}";
+        document.getElementById("result_code").innerText=all_done
+    }
+    document.getElementById("copy").onclick = function copy(){
+        // alert("hello")
+        document.getElementById("result_code").select();
+        document.execCommand("copy");
+    }
+</script>
+</html>
